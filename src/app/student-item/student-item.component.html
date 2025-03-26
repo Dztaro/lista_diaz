@@ -1,0 +1,8 @@
+<div [ngClass]="{
+    'approved': student.status === 'aprobado',
+    'failed': student.status === 'desaprobado',
+    'pending': student.status === 'pendiente'
+  }">
+    <p>{{ student.name }} - {{ student.age }} años - Nota: {{ student.grade }} ({{ student.status | uppercase }})</p>
+  </div>
+  
