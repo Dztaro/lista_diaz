@@ -1,0 +1,28 @@
+<h2>Registro de Alumnos</h2>
+<form [formGroup]="studentForm" (ngSubmit)="submitForm()">
+  <label>Nombre:</label>
+  <input type="text" formControlName="name">
+  <div *ngIf="studentForm.get('name')?.invalid && studentForm.get('name')?.touched">
+    {{ getErrorMessage('name') }}
+  </div>
+
+  <label>Edad:</label>
+  <input type="number" formControlName="age">
+  <div *ngIf="studentForm.get('age')?.invalid && studentForm.get('age')?.touched">
+    {{ getErrorMessage('age') }}
+  </div>
+
+  <label>Email:</label>
+  <input type="email" formControlName="email">
+  <div *ngIf="studentForm.get('email')?.invalid && studentForm.get('email')?.touched">
+    {{ getErrorMessage('email') }}
+  </div>
+
+  <label>DNI:</label>
+  <input type="text" formControlName="dni">
+  <div *ngIf="studentForm.get('dni')?.invalid && studentForm.get('dni')?.touched">
+    {{ getErrorMessage('dni') }}
+  </div>
+
+  <button type="submit" [disabled]="studentForm.invalid">Registrar</button>
+</form>
